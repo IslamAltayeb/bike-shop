@@ -1,0 +1,801 @@
+/* global prop */
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+:root {
+    --main-color: #10cab7;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: #f6f6f6;
+}
+
+body {
+    font-family: "Work Sans", sans-serif;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.container {
+    padding-left: 15p;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* midum */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* start headers */
+
+.header {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header i {
+    width: 60px;
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+.header .logo {
+    width: 60px;
+    margin-left: 5px;
+}
+
+.profile {
+    display: flex;
+    flex-flow: row;
+}
+
+.profile i {
+    color: #777;
+    font-size: 18pt;
+    margin-top: 10px;
+    width: 40px;
+}
+
+.profile i:hover {
+    color: var(--main-color);
+}
+
+.header .links {
+    position: relative;
+}
+
+.header .links:hover .icon span:nth-child(2) {
+    width: 100%;
+}
+
+.header .links .icon {
+    width: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.header .links .icon span {
+    background-color: #222;
+    margin-bottom: 5px;
+    height: 2px;
+}
+
+.header .links .icon span:first-child {
+    width: 100%;
+}
+
+.header .links .icon span:nth-child(2) {
+    width: 50%;
+    transition: 0.3s;
+}
+
+.header .links .icon span:last-child {
+    width: 100%;
+}
+
+.header .links ul {
+    list-style: none;
+    margin: 0;
+    right: 0;
+    padding: 0;
+    position: absolute;
+    background-color: #f6f6f6;
+    display: none;
+    min-width: 200px;
+    top: calc(100% + 15px);
+}
+
+.header .links ul::before {
+    content: "";
+    border: 10px;
+    border-style: solid;
+    border-color: transparent transparent #f6f6f6 transparent;
+    position: absolute;
+    right: 5px;
+    top: -20px;
+}
+
+.header .links:hover ul {
+    display: block;
+    z-index: 1;
+}
+
+.header .links ul li a {
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    color: #222;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.header .links ul li a:hover {
+    padding-left: 30px;
+    color: var(--main-color);
+}
+
+.header .links ul li:not(:last-child) a {
+    border-bottom: 1px solid #ddd;
+}
+
+/* end headers */
+
+/* start landing photo section */
+.landing {
+    background-image: url(../img/bikes.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: calc(100vh - 64px);
+    position: relative;
+}
+
+.landing .intro-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 320px;
+    max-width: 100%;
+}
+
+.landing .intro-text h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 50px;
+    color: var(--main-color);
+}
+
+.landing .intro-text p {
+    font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    line-height: 1.8;
+    color: white;
+}
+
+/* end landing photo section */
+
+/* start catagory section */
+.catagory {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.catagory h1 {
+    text-align: center;
+    color: var(--main-color);
+}
+
+.catagory .all-catagory {
+    display: flex;
+    flex-flow: wrap row;
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* this is responsive for catagory section for phone with max-size 767px */
+@media (max-width:767px) {
+    .catagory .all-catagory {
+        flex-flow: column;
+        width: 100%;
+    }
+}
+
+/* this is responsive for catagory section for taplet with max-size 919px */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .catagory .all-catagory {
+        flex-flow: column;
+        width: 100%;
+    }
+}
+
+.catagory .all-catagory .first .col-1 h2,
+.catagory .all-catagory .second .col-1 h2 {
+    position: absolute;
+    margin-top: -22%;
+    margin-left: 15%;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 20pt;
+}
+
+/* this is responsive for catagory element for phone mobile by max-width 767px */
+@media (max-width:767px) {
+
+    .catagory .all-catagory .first .col-1 h2,
+    .catagory .all-catagory .second .col-1 h2 {
+        margin-top: -50%;
+        margin-left: 20%;
+        font-size: 25pt;
+    }
+}
+
+/* this is responsive for catagory h2 element for taplet  with max-width 991px*/
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .catagory .all-catagory .first .col-1 h2,
+    .catagory .all-catagory .second .col-1 h2 {
+        font-size: 30pt;
+        margin-top: -35%;
+        margin-left: 30%;
+    }
+}
+
+.catagory .all-catagory .first .col-2 h2,
+.catagory .all-catagory .second .col-2 h2 {
+    position: absolute;
+    margin-top: -20%;
+    margin-left: 18%;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 20pt;
+}
+
+/* this is responsive for catagory element for phone mobile by max-width 767px */
+@media (max-width:767px) {
+
+    .catagory .all-catagory .first .col-2 h2,
+    .catagory .all-catagory .second .col-2 h2 {
+        margin-top: -50%;
+        margin-left: 30%;
+        font-size: 25pt;
+        font-weight: bold;
+    }
+}
+
+/* this is responsive for catagory h2 element for taplt */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .catagory .all-catagory .first .col-2 h2,
+    .catagory .all-catagory .second .col-2 h2 {
+        font-size: 30pt;
+        margin-top: -35%;
+        margin-left: 35%;
+    }
+}
+
+.catagory .all-catagory .col-1 h2:hover,
+.catagory .all-catagory .col-2 h2:hover {
+    color: var(--main-color);
+}
+
+
+
+.catagory .all-catagory .first,
+.catagory .all-catagory .second {
+    display: flex;
+    flex-flow: column wrap;
+    width: 50%;
+}
+
+.catagory .all-catagory .col-1 img,
+.catagory .all-catagory .col-2 img {
+    width: 99%;
+    height: 500px;
+    filter: brightness(80%);
+}
+
+/* this is esponsive for img to phone with max-size 767px */
+@media (max-width:767px) {
+
+    .catagory .all-catagory .col-1 img,
+    .catagory .all-catagory .col-2 img {
+        width: 375px;
+        height: 400px;
+    }
+}
+
+/* this is responsive for catagory section for taplet with max-size 991px */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .catagory .all-catagory .col-1 img,
+    .catagory .all-catagory .col-2 img {
+        width: 650px;
+        margin-left: 35px;
+    }
+}
+
+/* end catagory section */
+
+/* start video section */
+.vid {
+    margin: 0 auto;
+    width: 95%;
+    padding-bottom: 20px;
+}
+
+.vid iframe {
+    width: 100%;
+    height: 650px;
+    filter: brightness(70%);
+}
+
+.vid p {
+    position: absolute;
+    margin-top: -25%;
+    margin-left: 28%;
+    text-align: center;
+    color: white;
+    font-size: 20pt;
+    font-weight: bolder;
+}
+
+@media (max-width: 767px) {
+    .vid p {
+        margin-left: 20%;
+        width: 50%;
+        font-size: 18pt;
+        margin-top: -70%;
+    }
+}
+
+.vid span {
+    color: var(--main-color);
+}
+
+/* end video section */
+
+/* start the best deals section  */
+
+.deals {
+    padding-bottom: 40px;
+}
+
+.deals h1 {
+    text-align: center;
+    color: var(--main-color);
+}
+
+.deals .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.deals .container .first-flx,
+.deals .container .second-flx {
+    width: calc(100%/2);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+}
+
+/* this is responsive for mobile with width:767px */
+@media (max-width: 767px) {
+
+    .deals .container .first-flx,
+    .deals .container .second-flx {
+        width: 375px;
+    }
+}
+
+
+.deals .container img {
+    width: 265px;
+    padding: 0;
+}
+
+.deals .container .offer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.deals .container .one,
+.deals .container .two {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+    transition: all .5s;
+}
+
+/* this is responsive for mobile with width:767px */
+@media (max-width: 767px) {
+
+    .deals .container .one,
+    .deals .container .two {
+        margin-bottom: 25px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .deals .container .one,
+    .deals .container .two {
+        margin-bottom: 25px;
+    }
+}
+
+
+.deals .container .one:hover,
+.deals .container .two:hover {
+    transform: scale(1.1);
+}
+
+.deals .container .one p.main,
+.deals .container .two p.main {
+    text-align: center;
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.deals .container .one .offer p.percent,
+.deals .container .two .offer p.percent {
+    margin-left: 20px;
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    height: 30px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.deals .container .one .offer .price,
+.deals .container .two .offer .price {
+    margin-right: 20px;
+}
+
+.deals .container .one .offer .price p.line,
+.deals .container .two .offer .price p.line {
+    text-decoration: line-through;
+    color: darkred;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.deals .container .one .offer .price p.final,
+.deals .container .two .offer .price p.final {
+
+    color: darkred;
+    font-weight: bolder;
+}
+
+.deals .container button {
+    width: 100%;
+    height: 50px;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 14pt;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+.deals .container button:hover {
+    color: var(--main-color);
+    background-color: white;
+}
+
+
+/* end the best deals section */
+
+/* start event section */
+.event {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.event .event-bk {
+    background-image: url(../img/bk.webp);
+    width: calc(100vh-64px);
+    height: 70vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+}
+
+/* resbonsive for mobile with max-width:767px */
+@media (max-width:767px) {
+    .event .event-bk {
+        background-position: right;
+    }
+}
+
+
+.event .event-bk:hover {
+    transform: scale(-1, 1);
+    transition: 2s;
+}
+
+.event h2 {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    font-size: 20pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    margin-top: -25%;
+    margin-left: 5%;
+}
+
+/* resbonsive for mobile with max-width:767px */
+@media (max-width:767px) {
+    .event h2 {
+        margin-top: -100%;
+    }
+}
+
+.event p {
+    position: absolute;
+    z-index: 2;
+    margin-top: -20%;
+    margin-left: 7%;
+    width: 50%;
+    color: white;
+    line-height: 1.6;
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+/* resbonsive for mobile with max-width:767px */
+@media (max-width:767px) {
+    .event p {
+        margin-top: -80%;
+        width: 80%;
+    }
+}
+
+
+/* end event section */
+
+/* start about section */
+.about {
+    position: relative;
+}
+
+.about h1 {
+    text-align: center;
+    color: var(--main-color);
+}
+
+.about .con {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+/* resbonsive for mobile with max-width:767px */
+
+@media (max-width:767px) {
+    .about .con {
+        flex-flow: column;
+    }
+}
+
+.about .text {
+    width: 50%;
+}
+
+/* resbonsive for mobile with max-width:767px */
+@media (max-width:767px) {
+    .about .text {
+        overflow-y: scroll;
+        overflow-x: none;
+        height: 150px;
+        width: 80%;
+        margin-bottom: 15px;
+    }
+}
+
+.about .text p {
+    width: 80%;
+    margin-left: 90px;
+    line-height: 1.8;
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* resbonsive for ipad with max-width:991px */
+@media (min-width:768px) and (max-width:991px) {
+    .about .text p {
+        margin-left: 40px;
+        text-align: center;
+    }
+}
+
+
+.about .con .ph {
+    background-image: url(../img/D_H03Outlet.jpg);
+    background-position: top;
+    background-size: cover;
+    width: 50%;
+    height: 450px;
+}
+
+@media (max-width:767px) {
+    .about .con .ph {
+        width: 100%;
+    }
+}
+
+.about::after {
+    content: "";
+    border-top: 5px solid var(--main-color);
+    height: 3px;
+    width: 100%;
+    position: absolute;
+
+}
+
+/* end about section */
+
+/* start footer section */
+
+footer {
+    background-color: rgb(228, 224, 224);
+    padding-bottom: 0%;
+}
+
+footer .all-ft {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+/* responsive for mobile with max-width:767px */
+@media (max-width:767px) {
+    footer .all-ft {
+        flex-flow: column;
+        margin-left: 25px;
+    }
+}
+
+footer .all-ft .contact {
+    padding-left: 25px;
+}
+
+footer .all-ft .contact p.addres,
+footer .all-ft .contact p.phone {
+    font-size: 12pt;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+footer .all-ft .contact p.mail a {
+    text-decoration: none;
+    font-size: 12pt;
+    font-style: italic;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--main-color);
+}
+
+footer .all-ft .social h2 {
+    color: var(--main-color);
+}
+
+footer .all-ft .social i {
+    margin-left: 10px;
+    font-size: 16pt;
+    color: darkred;
+}
+
+footer .all-ft .social i:hover {
+    color: var(--main-color);
+}
+
+
+footer .all-ft .links a {
+    text-decoration: none;
+    color: black;
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 600;
+}
+
+footer .all-ft .links a:hover {
+    color: var(--main-color);
+}
+
+footer .all-ft .sub {
+    margin-right: 25px;
+    margin-top: 30px;
+}
+
+footer .all-ft .sub input.btn {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 12pt;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+}
+
+/* responsive for mobile with max-width:767px */
+@media (max-width:767px) {
+    footer .all-ft .sub input {
+        width: 100%;
+        height: 40px;
+    }
+}
+
+footer .all-ft .sub input.btn:hover {
+    background-color: white;
+    color: var(--main-color);
+}
+
+footer p.res {
+    text-align: center;
+    padding: 10px;
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    border: 1px solid var(--main-color);
+}
+
+footer p.res span {
+    color: var(--main-color);
+}
+
+/* end footer section */
